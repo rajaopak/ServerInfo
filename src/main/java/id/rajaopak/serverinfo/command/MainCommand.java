@@ -22,7 +22,7 @@ public class MainCommand extends BaseCommand {
         super(plugin, "serverinfo", Arrays.asList("si", "sinfo"), "serverinfo.use",
                 sender -> {
                     if (sender instanceof Player player) {
-                        SimpleInventory gui = new SimpleInventory(36, "&eServer Info");
+                        SimpleInventory gui = new SimpleInventory(45, "&eServer Info");
                         RefreshGui refreshGui = new RefreshGui(plugin, gui);
 
                         // animated item
@@ -111,13 +111,13 @@ public class MainCommand extends BaseCommand {
                                 .addLore("&7View Distance&f: &e" + Bukkit.getServer().getViewDistance())
                                 .addLore("&7Hardcore&f: &e" + Bukkit.getServer().isHardcore())
                                 .build());
-                        gui.setItem(31, ItemBuilder.from(Material.BARRIER)
+                        gui.setItem(40, ItemBuilder.from(Material.BARRIER)
                                 .setName("&c&lClose")
                                 .build());
 
                         // click handler
                         gui.addClickHandler(event -> {
-                            if (event.getSlot() == 31) {
+                            if (event.getSlot() == 40) {
                                 gui.close(event.getWhoClicked());
                             }
                         });
