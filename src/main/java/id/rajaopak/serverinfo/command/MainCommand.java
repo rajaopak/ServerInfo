@@ -51,7 +51,7 @@ public class MainCommand extends BaseCommand {
                                     .addLore("&7Average Ping&f: &a" + ServerInfo.getUtils().averagePing() + "&7ms")
                                     .build());
 
-                            gui.setItem(22, ItemBuilder.from(Material.ENDER_CHEST)
+                            gui.setItem(22, ItemBuilder.from(Material.OBSERVER)
                                     .setName("&6&lMob Info")
                                     .addLore("&7Entities&f: &e" + Bukkit.getWorlds().stream().map(world -> world.getEntities().size()).reduce(Integer::sum).orElse(0))
                                     .addLore("&7World List&f:")
