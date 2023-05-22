@@ -2,6 +2,7 @@ package id.rajaopak.serverinfo;
 
 import dev.rajaopak.opaklibs.OpakLibs;
 import dev.rajaopak.opaklibs.libs.IpChecker;
+import id.rajaopak.serverinfo.bstats.Metrics;
 import id.rajaopak.serverinfo.command.MainCommand;
 import id.rajaopak.serverinfo.util.Utils;
 import org.bukkit.Bukkit;
@@ -22,6 +23,7 @@ public final class ServerInfo extends JavaPlugin {
         serverIpLocation = IpChecker.getIpLocation(serverIp);
         OpakLibs.init(this);
         new MainCommand(this).register();
+        new Metrics(this, 18535);
     }
 
     @Override
