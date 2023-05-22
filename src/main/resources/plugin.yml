@@ -3,4 +3,4 @@ version: '${version}'
 main: id.rajaopak.serverinfo.ServerInfo
 api-version: 1.13
 authors: [ rajaopak ]
-description: This plugin allow you to Getting your server info
+description: This plugin allow you to see your server statistic and information

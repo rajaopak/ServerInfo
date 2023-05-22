@@ -4,6 +4,7 @@ import dev.rajaopak.opaklibs.OpakLibs;
 import dev.rajaopak.opaklibs.libs.IpChecker;
 import id.rajaopak.serverinfo.command.MainCommand;
 import id.rajaopak.serverinfo.util.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ServerInfo extends JavaPlugin {

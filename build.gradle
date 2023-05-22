@@ -25,7 +25,7 @@ dependencies {
 shadowJar {
     relocate('dev.rajaopak.OpakLibs', 'id.rajaopak.OpakLibs')
     relocate('io.papermc.lib', 'id.rajaopak.paperlib')
-    destinationDir file('D:\\server\\bukkit\\plugins')
+    destinationDir file('deploy')
 }
 
 def targetJavaVersion = 16

@@ -12,6 +12,9 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * source: <a href="https://github.com/jpenilla/TabTPS/blob/master/spigot/src/main/java/xyz/jpenilla/tabtps/spigot/util/SpigotReflection.java">jpenilla - TabTps</a>
+ */
 public class Nms {
 
     private static final MethodHandles.Lookup LOOKUP = MethodHandles.lookup();

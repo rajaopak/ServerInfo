@@ -2,6 +2,7 @@ package id.rajaopak.serverinfo.command;
 
 import dev.rajaopak.opaklibs.commands.BaseCommand;
 import dev.rajaopak.opaklibs.inventory.SimpleInventory;
+import dev.rajaopak.opaklibs.libs.Common;
 import dev.rajaopak.opaklibs.libs.ItemBuilder;
 import id.rajaopak.serverinfo.ServerInfo;
 import id.rajaopak.serverinfo.task.RefreshGui;
@@ -48,6 +49,23 @@ public class MainCommand extends BaseCommand {
                                     .setName("&6&lOnline Players")
                                     .addLore("&7Online&f: &a" + Bukkit.getOnlinePlayers().size() + "&f/&a" + Bukkit.getMaxPlayers() + " &f(&7online&f/&7max&f)")
                                     .addLore("&7Average Ping&f: &a" + ServerInfo.getUtils().averagePing() + "&7ms")
+                                    .build());
+
+                            gui.setItem(22, ItemBuilder.from(Material.ENDER_CHEST)
+                                    .setName("&6&lMob Info")
+                                    .addLore("&7Entities&f: &e" + Bukkit.getWorlds().stream().map(world -> world.getEntities().size()).reduce(Integer::sum).orElse(0))
+                                    .addLore("&7World List&f:")
+                                    .addLore(Bukkit.getWorlds().stream().map(world -> {
+                                        if (world.getEnvironment() == World.Environment.NORMAL) {
+                                            return "&7- &a" + world.getName() + "&f: &e" + world.getEntities().size();
+                                        } else if (world.getEnvironment() == World.Environment.NETHER) {
+                                            return "&7- &c" + world.getName() + "&f: &e" + world.getEntities().size();
+                                        } else if (world.getEnvironment() == World.Environment.THE_END) {
+                                            return "&7- &5" + world.getName() + "&f: &e" + world.getEntities().size();
+                                        } else {
+                                            return "&e-" + world.getName() + "&8: " + world.getEntities().size();
+                                        }
+                                    }).collect(Collectors.toList()))
                                     .build());
                             player.updateInventory();
                         });
@@ -106,10 +124,12 @@ public class MainCommand extends BaseCommand {
 
                         // open gui to the player
                         gui.open(player);
+                    } else {
+                        sender.sendMessage(Common.color("&aYour server Ip is &e" + ServerInfo.getServerIp()));
                     }
                 },
-                sender -> sender.sendMessage("&cYou don't have permission to use this command."),
-                sender -> sender.sendMessage("&cNo Subcommand found."),
+                sender -> sender.sendMessage(Common.color("&cYou don't have permission to use this command.")),
+                sender -> sender.sendMessage(Common.color("&6Usage: /serverinfo|sinfo|si")),
                 null, null);
     }
 }
