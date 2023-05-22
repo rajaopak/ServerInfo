@@ -130,7 +130,7 @@ public class Utils {
 
     public String getServerIP() {
         try {
-            return new BufferedReader(new InputStreamReader(new URL("http://checkip.amazonaws.com").openStream())).readLine();
+            return new BufferedReader(new InputStreamReader(new URL("https://checkip.amazonaws.com").openStream())).readLine();
         } catch (IOException e) {
             e.printStackTrace();
             return null;
